@@ -13,10 +13,10 @@ public class Customer {
         this("",null,"female",0);
     }
     public  Customer(String ID,String name,String sex,int age){
-        this.ID = ID;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
+        setID(ID);
+        setName(name);
+        setSex(sex);
+        setAge(age);
     }
 
     public void setID(String ID) {
@@ -35,10 +35,10 @@ public class Customer {
         return sex;
     }
     public void setSex(String sex) {
-        if(sex.equals("Male") && sex.equals("male")){
+        if(sex.equals("Male") || sex.equals("male")){
             this.sex = "male";
         }
-        else if(sex.equals("Female") && sex.equals("female")){
+        else if(sex.equals("Female") || sex.equals("female")){
             this.sex =  "female";
         }
     }
