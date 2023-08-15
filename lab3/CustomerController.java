@@ -1,9 +1,6 @@
 package com.example.lab3;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -49,11 +46,17 @@ public class CustomerController {
     }
     @RequestMapping(value = "/customerDelByname/{n}", method = RequestMethod.DELETE)
     public boolean delCustomerByName(@PathVariable("n") String n){
-        for (int i = 0; i < customers.size(); i++) {
-            if(customers.get(i).getName().equals(n)){
-                customers.remove(i);
-            };
-        }
+        customers.remove(this.getCustomerByName(n));
+        return true;
+    }
+//    @RequestMapping(value = "/addCustomer", method = RequestMethod.GET)
+//    public boolean addCustomer(@RequestParam("id") String ID,@RequestParam("name") String n,@RequestParam("sex") String s,@RequestParam("age") int a){
+//        customers.add(new Customer(ID,n,s,a));
+//        return true;
+//    }
+    @RequestMapping(value = "/addCustomer2", method = RequestMethod.POST)
+    public boolean addCustomer(@RequestParam("id") String ID,@RequestParam("name") String n,@RequestParam("sex") String s,@RequestParam("age") int a){
+        customers.add(new Customer(ID,n,s,a));
         return true;
     }
 }
