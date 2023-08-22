@@ -1,10 +1,7 @@
 package com.example.lab4;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @RestController
@@ -30,7 +27,7 @@ public class MathAPI {
         return Double.toString(n1%n2);
     }
     @RequestMapping(value = "/max", method = RequestMethod.POST)
-    public String myMax(double n1,double n2) {
-        return Double.toString(Math.max(n1,n2));
+    public String myMax(@RequestBody Mynumber n) {
+        return Double.toString(Math.max(n.getN1(),n.getN2()));
     }
 }

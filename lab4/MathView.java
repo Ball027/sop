@@ -91,17 +91,18 @@ public class MathView extends FormLayout {
                     .block();
             Answer.setValue(out);
         });
-//        max.addClickListener(event->{
-//            double num1 = Double.parseDouble(Number1.getValue());
-//            double num2 = Double.parseDouble(Number2.getValue());
-//            String out = WebClient.create()
-//                    .post()
-//                    .uri("http://localhost:8081/max")
-//                    .body(Mono.just( myMax(num1, num2)), MyNumber.class)
-//                    .retrieve()
-//                    .bodyToMono(String.class)
-//                    .block();
-//            Answer.setValue(out);
-//        });
+        max.addClickListener(event->{
+
+            double num1 = Double.parseDouble(Number1.getValue());
+            double num2 = Double.parseDouble(Number2.getValue());
+            String out = WebClient.create()
+                    .post()
+                    .uri("http://localhost:8081/max")
+                    .body(Mono.just(new Mynumber(num1, num2)), Mynumber.class)
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+            Answer.setValue(out);
+        });
     }
 }
