@@ -28,13 +28,6 @@ public class MathView extends FormLayout {
         h1.add(plus,minus,multi,divide,mod,max);
         v1.add(Number1,Number2,h1,Answer);
         add(v1);
-        this.setResponsiveSteps(
-// Use one column by default
-                new ResponsiveStep("1px", 1),
-// Use two columns, if the layout's width exceeds 450px
-                new ResponsiveStep("600px", 2),
-// Use three columns, if the layout's width exceeds 700px
-                new ResponsiveStep("700px", 3));
 
         plus.addClickListener(Event -> {
             double num1 = Double.parseDouble(Number1.getValue());

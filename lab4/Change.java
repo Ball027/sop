@@ -1,6 +1,8 @@
 package com.example.lab4;
 
-public class Change {
+import java.io.Serializable;
+
+public class Change implements Serializable {
     int b1000,b500,b100,b20,b10,b5,b1;
 
     public int getB1000() {
